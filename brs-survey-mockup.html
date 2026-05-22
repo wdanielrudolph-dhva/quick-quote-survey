@@ -5,8 +5,1918 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Best Rate Shopper</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://d2vfmc14ehtaht.cloudfront.net/optimized/css/31c6b034a221435d0c821a5b09bd0326b9ce1470.css">
+  <style>
+    :root {
+      --bg: #eeeeee;
+      --card: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --yellow: #f3e300;
+      --apply: #cf1f4b;
+      --purple: #4e118f;
+      --mobile-blue: #1e88ff;
+      --progress: var(--mobile-blue);
+      --progress-dark: var(--mobile-blue);
+      --footer: #000000;
+      --white: #ffffff;
+      --shadow: 0 12px 28px rgba(0, 0, 0, .16);
+      --max: 1200px;
+      --survey-max: 920px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .top-strip {
+      background: var(--yellow);
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 18px;
+      font-size: 12px;
+      font-weight: 700;
+      gap: 14px;
+    }
+
+    .desktop-header {
+      display: block;
+      background: var(--bg);
+    }
+
+    .desktop-nav-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 95px;
+      padding: 0 20px;
+    }
+
+    .logo {
+      width: 54px;
+      height: auto;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .apply-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 16px;
+      border-radius: 7px;
+      background: var(--apply);
+      color: #fff;
+      font-weight: 700;
+      font-size: 12px;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, .08);
+    }
+
+    .mobile-header {
+      display: none;
+      padding: 18px 14px 0;
+    }
+
+    .mobile-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .mobile-logo {
+      width: 98px;
+      height: auto;
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+
+    .mobile-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-right: 2px;
+    }
+
+    .icon-btn {
+      width: 66px;
+      height: 54px;
+      border: none;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    }
+
+    .phone-btn {
+      background: var(--apply);
+    }
+
+    .menu-btn {
+      background: var(--purple);
+      position: relative;
+    }
+
+    .menu-btn.active {
+      outline: 4px solid rgba(115, 76, 178, .35);
+    }
+
+    .icon-btn svg {
+      width: 28px;
+      height: 28px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .phone-btn svg {
+      stroke: #000;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 22px 8px 8px 10px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      font-size: 22px;
+      line-height: 1.35;
+      padding: 18px 0;
+      font-weight: 400;
+    }
+
+    .mobile-menu .apply-mobile {
+      display: inline-flex;
+      margin-top: 6px;
+      font-size: 18px;
+      padding: 13px 22px;
+      min-height: auto;
+      border-radius: 12px;
+    }
+
+    .survey-shell {
+      background: var(--bg);
+      min-height: 640px;
+      padding: 24px 0 0;
+    }
+
+    .survey-frame {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      min-height: 600px;
+    }
+
+    .survey-card {
+      width: min(var(--survey-max), calc(100% - 64px));
+      min-height: 430px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      align-self: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 58px 72px 64px;
+    }
+
+    .survey-kicker {
+      margin: 0 0 4px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .survey-title {
+      margin: 0;
+      text-align: center;
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .survey-offer {
+      margin: 12px 0 54px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .survey-offer strong {
+      font-weight: 800;
+    }
+
+    .question-title {
+      margin: 0 0 28px;
+      font-size: 24px;
+      line-height: 1.35;
+      font-weight: 500;
+    }
+
+    .question-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mobile-title {
+      display: none;
+    }
+
+    .mobile-label {
+      display: none;
+    }
+
+    .required-mark {
+      font-weight: 700;
+    }
+
+    .options {
+      display: grid;
+      gap: 20px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      width: fit-content;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .choice input {
+      width: 23px;
+      height: 23px;
+      margin: 0;
+      accent-color: var(--progress);
+    }
+
+    .fields {
+      display: grid;
+      gap: 24px;
+    }
+
+    .field label,
+    .field-label {
+      display: block;
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .tooltip-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-left: 6px;
+      vertical-align: top;
+    }
+
+    .tooltip-trigger {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--progress);
+      border-radius: 3px;
+      background: #fff;
+      color: var(--progress);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: help;
+    }
+
+    .tooltip-text {
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 8px);
+      z-index: 20;
+      width: min(320px, calc(100vw - 48px));
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.45;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .22);
+      opacity: 0;
+      overflow-wrap: break-word;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(-4px);
+      transition: opacity .15s ease, transform .15s ease;
+    }
+
+    .tooltip-text::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      background: #111;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .tooltip-wrap:hover .tooltip-text,
+    .tooltip-wrap:focus-within .tooltip-text {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .tooltip-text.is-positioned {
+      position: fixed;
+      left: auto;
+      top: auto;
+      right: auto;
+      opacity: 1;
+      transform: none;
+    }
+
+    .tooltip-wrap:hover .tooltip-text.is-positioned,
+    .tooltip-wrap:focus-within .tooltip-text.is-positioned {
+      transform: none;
+    }
+
+    .tooltip-text.is-positioned::before {
+      left: var(--tooltip-arrow-left, 50%);
+    }
+
+    .text-input {
+      width: 100%;
+      height: 54px;
+      padding: 0 18px;
+      border: 1px solid #c9c9c9;
+      border-radius: 5px;
+      background: #fff;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .text-input:focus,
+    .range-input:focus-visible,
+    .choice input:focus-visible,
+    .consent-row input:focus-visible {
+      outline: 3px solid rgba(117, 168, 239, .45);
+      outline-offset: 3px;
+    }
+
+    .error {
+      display: none;
+      margin-top: 10px;
+      color: #b33a3a;
+      font-size: 15px;
+    }
+
+    .error.show {
+      display: block;
+    }
+
+    .slider-block {
+      display: grid;
+      gap: 18px;
+    }
+
+    .slider-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .slider-value {
+      flex: 0 0 auto;
+      min-width: 142px;
+      text-align: right;
+      color: var(--progress-dark);
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .range-input {
+      width: 100%;
+      accent-color: var(--progress);
+      cursor: pointer;
+    }
+
+    .range-scale {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .hint {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 12px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-flex;
+      flex: 0 0 auto;
+      width: 52px;
+      height: 30px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-track {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: #b7b7b7;
+      cursor: pointer;
+      transition: background .18s ease;
+    }
+
+    .toggle-track::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 3px;
+      top: 3px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, .22);
+      transition: transform .18s ease;
+    }
+
+    .toggle-switch input:checked + .toggle-track {
+      background: var(--progress);
+    }
+
+    .toggle-switch input:checked + .toggle-track::before {
+      transform: translateX(22px);
+    }
+
+    .calculated-loan {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(30, 136, 255, .18);
+      font-weight: 700;
+    }
+
+    .calculated-loan strong {
+      color: var(--progress);
+      font-size: 18px;
+    }
+
+    .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-top: 18px;
+      color: #222;
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .consent-row input {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      margin-top: 4px;
+      accent-color: var(--progress);
+    }
+
+    .consent-row a {
+      color: #295ccc;
+      text-decoration: underline;
+    }
+
+    .progress-dock {
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      height: 74px;
+      display: grid;
+      grid-template-columns: 210px 1fr 210px;
+      align-items: stretch;
+      background: var(--progress);
+      color: #fff;
+      box-shadow: 0 -10px 24px rgba(0, 0, 0, .16);
+    }
+
+    .nav-btn {
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0;
+      cursor: pointer;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0, 0, 0, .08);
+    }
+
+    .nav-btn:disabled {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .next-btn {
+      background: rgba(111, 18, 22, .15);
+    }
+
+    .progress-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-track {
+      width: min(330px, 54vw);
+      height: 32px;
+      border: 2px solid rgba(255, 255, 255, .72);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: #fff;
+      border-radius: 999px;
+      transition: width .2s ease;
+    }
+
+    .success-card {
+      width: min(720px, calc(100% - 64px));
+      min-height: 320px;
+      margin: 70px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 48px;
+      text-align: center;
+    }
+
+    .success-card.show {
+      display: flex;
+    }
+
+    .success-card h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .success-card p {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.45;
+    }
+
+    .footer {
+      background: var(--footer);
+      color: #fff;
+      padding: 74px 24px 26px;
+    }
+
+    .footer-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .footer h3 {
+      margin: 0 0 32px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .footer p,
+    .footer li,
+    .footer a {
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer li {
+      margin-bottom: 8px;
+    }
+
+    .footer .about-copy {
+      max-width: 180px;
+    }
+
+    .nmls-link {
+      display: inline-block;
+      margin-top: 14px;
+    }
+
+    .socials-compact {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 900px) {
+
+      .top-strip,
+      .desktop-header {
+        display: none;
+      }
+
+      .mobile-header {
+        display: block;
+      }
+
+      .survey-shell {
+        padding: 16px 10px 0;
+      }
+
+      .survey-frame {
+        min-height: 660px;
+      }
+
+      .survey-card {
+        width: min(548px, 100%);
+        min-height: 520px;
+        padding: 48px 32px 54px;
+        border-radius: 12px;
+        align-self: start;
+        margin-top: 26px;
+        overflow: visible;
+      }
+
+      .survey-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: auto;
+        top: 0;
+        height: 8px;
+        width: var(--mobile-progress, 0%);
+        background: var(--mobile-blue);
+        transition: width .2s ease;
+      }
+
+      .survey-kicker {
+        font-size: 18px;
+      }
+
+      .survey-title {
+        font-size: 27px;
+      }
+
+      .survey-offer {
+        margin-bottom: 42px;
+        font-size: 23px;
+      }
+
+      .question-title {
+        font-size: 26px;
+      }
+
+      .question-title-row {
+        align-items: flex-start;
+      }
+
+      .choice {
+        font-size: 22px;
+      }
+
+      .progress-dock {
+        position: sticky;
+        grid-template-columns: 72px 1fr 72px;
+        height: 82px;
+        background: #fff;
+        color: var(--mobile-blue);
+        border-top: 1px solid #d9d9d9;
+        box-shadow: 0 -10px 20px rgba(0, 0, 0, .18);
+      }
+
+      .progress-track {
+        display: none;
+      }
+
+      .nav-btn {
+        font-size: 0;
+        color: var(--mobile-blue);
+      }
+
+      .nav-btn::before {
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      .prev-btn::before {
+        content: "<";
+      }
+
+      .next-btn::before {
+        content: ">";
+      }
+
+      .next-btn[data-submit="true"]::before {
+        content: "Submit";
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .next-btn {
+        background: transparent;
+      }
+
+      .choice input,
+      .range-input,
+      .consent-row input {
+        accent-color: var(--mobile-blue);
+      }
+
+      .slider-value {
+        color: var(--mobile-blue);
+      }
+
+      .footer {
+        padding: 84px 10px 110px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 78px;
+        text-align: center;
+      }
+
+      .footer h3 {
+        font-size: 26px;
+        margin-bottom: 40px;
+      }
+
+      .footer p,
+      .footer li,
+      .footer a {
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .footer .about-copy {
+        max-width: none;
+      }
+
+      .socials-compact {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .mobile-logo {
+        width: 105px;
+      }
+
+      .survey-card {
+        padding: 38px 18px 46px;
+      }
+
+      .survey-title {
+        font-size: 24px;
+      }
+
+      .survey-offer,
+      .question-title,
+      .choice,
+      .field label,
+      .field-label {
+        font-size: 20px;
+      }
+
+      .slider-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .question-title-row {
+        display: grid;
+        gap: 8px;
+      }
+
+      .question-title-row.mobile-inline {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+      }
+
+      .mobile-inline .desktop-title {
+        display: none;
+      }
+
+      .mobile-inline .mobile-title {
+        display: inline;
+      }
+
+      .tooltip-text {
+        width: min(280px, calc(100vw - 64px));
+      }
+
+      .field-label .desktop-label {
+        display: none;
+      }
+
+      .field-label .mobile-label {
+        display: inline;
+      }
+
+      .slider-value {
+        text-align: left;
+        min-width: 0;
+        font-size: 24px;
+      }
+
+      .range-scale {
+        font-size: 12px;
+      }
+
+      .consent-row {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <p>Temporary restore marker. Full local HTML remains at C:\Users\delve\Documents\Codex\2026-05-19\can-you-link-up-with-go\brs-survey-mockup.html</p>
+  <div class="top-strip">
+    <a href="https://www.dreamhousevirginia.com/locate-a-loan-officer">Locate a Loan Officer</a>
+    <span>|</span>
+    <a href="tel:8048825959">(804) 882-5959</a>
+  </div>
+
+  <header class="desktop-header">
+    <div class="desktop-nav-wrap">
+      <a href="https://www.dreamhousevirginia.com/">
+        <img class="logo"
+          src="https://di1v4rx98wr59.cloudfront.net/aa19700683e62/23ebfa92979c6db72335ee88b38ee33d565df003.png"
+          alt="Dream House Virginia logo">
+      </a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="https://www.dreamhousevirginia.com/">Home</a>
+        <a href="https://www.dreamhousevirginia.com/home-purchase">Buy a Home</a>
+        <a href="https://www.dreamhousevirginia.com/home-refinance">Refinance</a>
+        <a href="https://www.dreamhousevirginia.com/mortgage-calculators">Mortgage Calculators</a>
+        <a href="https://www.dreamhousevirginia.com/blog">Blog</a>
+        <a href="https://www.dreamhousevirginia.com/apply-now" class="apply-btn">Apply Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <header class="mobile-header">
+    <div class="mobile-header-row">
+      <a href="https://www.dreamhousevirginia.com/">
+        <img class="mobile-logo"
+          src="https://di1v4rx98wr59.cloudfront.net/aa19700683e62/23ebfa92979c6db72335ee88b38ee33d565df003.png"
+          alt="Dream House Virginia logo">
+      </a>
+      <div class="mobile-actions">
+        <a class="icon-btn phone-btn" href="tel:8048825959" aria-label="Call Dream House Virginia">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.4 19.4 0 0 1 5.2 12.8 19.8 19.8 0 0 1 2.1 4.1 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 2.1-.5c.8.4 1.7.6 2.6.7A2 2 0 0 1 22 16.9z" />
+          </svg>
+        </a>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu"
+          aria-label="Open menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+      <a href="https://www.dreamhousevirginia.com/">Home</a>
+      <a href="https://www.dreamhousevirginia.com/buy-a-home">Buy a Home</a>
+      <a href="https://www.dreamhousevirginia.com/refinance">Refinance</a>
+      <a href="https://www.dreamhousevirginia.com/mortgage-calculators">Mortgage Calculators</a>
+      <a href="https://www.dreamhousevirginia.com/blog">Blog</a>
+      <a href="https://www.dreamhousevirginia.com/locate-a-loan-officer">Locate a Loan Officer</a>
+      <a href="https://www.dreamhousevirginia.com/apply-now" class="apply-btn apply-mobile">Apply Now</a>
+    </nav>
+  </header>
+
+  <main class="survey-shell" id="surveyShell">
+    <form class="survey-frame" id="bestRateSurvey" novalidate>
+      <section class="survey-card" id="surveyCard" aria-live="polite"></section>
+      <section class="success-card" id="successCard" aria-live="polite">
+        <div>
+          <h2>Thank You!</h2>
+          <p>We've received your information and you're one step closer to finding out how much home you can afford.</p>
+        </div>
+      </section>
+      <nav class="progress-dock" id="progressDock" aria-label="Survey controls">
+        <button class="nav-btn prev-btn" type="button" id="prevBtn">← Prev</button>
+        <div class="progress-center" aria-hidden="true">
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+        <button class="nav-btn next-btn" type="button" id="nextBtn">Next →</button>
+      </nav>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <h3>About Us</h3>
+          <p class="about-copy">
+            We've been helping customers afford the home of their dreams for many years and we love what we do...
+            <br>Company NMLS: 2621003
+            <br>Personal NMLS: 1756718
+          </p>
+          <a class="nmls-link" href="https://www.nmlsconsumeraccess.org/" target="_blank" rel="noopener">NMLS
+            Consumer Access</a>
+        </div>
+        <div>
+          <h3>Contact Us</h3>
+          <p>
+            701 N Courthouse Road Suite 201<br>
+            Richmond, VA 23236<br>
+            Phone: <a href="tel:8048825959">(804) 882-5959</a><br>
+            <a href="mailto:josh@dreamhousevirginia.com">josh@dreamhousevirginia.com</a>
+          </p>
+        </div>
+        <div>
+          <h3>Disclaimers</h3>
+          <ul>
+            <li><a href="https://www.dreamhousevirginia.com/legal">Legal</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/privacy-policy">Privacy Policy</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/mobile-tos">Mobile Terms of Service</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/accessibility-statement">Accessibility Statement</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/site-map">Site Map</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="https://www.dreamhousevirginia.com/loan-programs">Loan Programs</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/loan-process">Loan Process</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/mortgage-basics">Mortgage Basics</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/online-forms">Online Forms</a></li>
+            <li><a href="https://www.dreamhousevirginia.com/faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container-fluid py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl mb-2 mb-xl-0">
+              <img src="https://d2vfmc14ehtaht.cloudfront.net/images/eoh-logo.svg?format=webp"
+                class="img-sm" alt="Equal Housing Lender Graphic">
+            </div>
+            <div
+              class="col-xl d-flex flex-column align-items-center align-items-xl-end justify-content-center justify-content-xl-end">
+              <div class="socials-compact">
+                <a target="_blank" rel="noopener" href="https://www.facebook.com/DreamHouseVirginiaLLC"
+                  title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a target="_blank" rel="noopener" href="https://x.com/DreamHouseVa" title="Twitter"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/dreamhousevirginia/"
+                  title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/company/81480822"
+                  title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCzhQisBPHqHIwczF5Vrm_nA"
+                  title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      Edit these values when you are ready to connect this page to GoHighLevel.
+
+      GHL_ENDPOINT can be a GHL inbound webhook, a middleware endpoint, or another
+      form receiver. The FIELD_MAP keys should be replaced with your actual GHL
+      contact/custom field keys after those Object Fields exist.
+    */
+    const GHL_ENDPOINT = "";
+
+    const FIELD_MAP = {
+      quoteAlreadyReceived: "custom_quote_or_preapproval_received",
+      quoteLoanAmount: "custom_quoted_loan_amount_number",
+      refiLoanAmount: "custom_refi_loan_amount_number",
+      calculatedLoanAmount: "custom_calculated_loan_amount_number",
+      quoteInterestRate: "custom_quoted_interest_rate_number",
+      situation: "custom_financing_situation",
+      workingWithAgent: "custom_working_with_real_estate_agent",
+      propertyType: "custom_property_type",
+      purchaseAgreement: "custom_purchase_agreement",
+      propertyUse: "custom_property_use",
+      purchasePrice: "custom_purchase_price_number",
+      downPaymentPercent: "custom_down_payment_percent_number",
+      creditScore: "custom_credit_score_number",
+      annualIncome: "custom_annual_household_income_number",
+      availableCash: "custom_available_cash_contribution_number",
+      employmentStatus: "custom_employment_status",
+      fullName: "full_name",
+      email: "email",
+      phone: "phone",
+      smsConsent: "custom_sms_terms_consent"
+    };
+
+    const state = {
+      values: {
+        quoteLoanAmount: 41,
+        refiLoanAmount: 41,
+        quoteInterestRate: 17,
+        purchasePrice: 81,
+        downPaymentPercent: 5,
+        calculatedLoanAmount: null,
+        creditScore: 141,
+        annualIncome: 26,
+        availableCash: 0
+      },
+      history: [],
+      currentId: "quote-start",
+      purchaseDetailsTouched: false,
+      submitted: false
+    };
+
+    const PROGRESS_STEP_IDS = [
+      "quote-start",
+      "quote-details",
+      "situation",
+      "purchase-agreement",
+      "purchase-details",
+      "refi-loan-amount",
+      "financial-details",
+      "contact"
+    ];
+
+    const steps = [
+      {
+        id: "quote-start",
+        type: "intro-radio",
+        showHeader: true,
+        field: "quoteAlreadyReceived",
+        title: "Do you already have a quote for a rate or preapproval?",
+        required: true,
+        options: [
+          { label: "Yes", value: "Yes", next: "quote-details" },
+          { label: "No", value: "No", next: "situation" }
+        ]
+      },
+      {
+        id: "quote-details",
+        type: "sliders",
+        title: "Tell us about the quote you already have.",
+        required: true,
+        fields: [
+          {
+            field: "quoteInterestRate",
+            label: "Interest Rate",
+            min: 0,
+            max: 66,
+            step: 1,
+            format: "quoteInterestRate",
+            minLabel: "< 4.5%",
+            maxLabel: "> 12.5%"
+          },
+          {
+            field: "quoteLoanAmount",
+            label: "Loan Amount",
+            min: 0,
+            max: 232,
+            step: 1,
+            format: "quoteLoanAmount",
+            minLabel: "< $100K",
+            maxLabel: "> $1.5MM"
+          }
+        ],
+        next: "situation"
+      },
+      {
+        id: "situation",
+        type: "intro-radio",
+        field: "situation",
+        title: "What type of loan are you looking for",
+        required: true,
+        options: [
+          { label: "Purchase", value: "Purchase", next: "purchase-agreement" },
+          { label: "Refinance", value: "Refinance", next: "financial-details" },
+        ]
+      },
+      {
+        id: "refi-loan-amount",
+        type: "slider",
+        field: "refiLoanAmount",
+        title: "Loan Amount",
+        min: 0,
+        max: 232,
+        step: 1,
+        format: "quoteLoanAmount",
+        minLabel: "< $100K",
+        maxLabel: "> $1.5MM",
+        next: "financial-details"
+      },
+      {
+        id: "purchase-agreement",
+        type: "radio",
+        field: "purchaseAgreement",
+        title: "Are you under contract?",
+        options: ["Yes", "No"],
+        next: "purchase-details"
+      },
+      {
+        id: "purchase-details",
+        type: "sliders",
+        title: "Purchase Details",
+        fields: [
+          {
+            field: "purchasePrice",
+            label: "Purchase Price",
+            min: 0,
+            max: 232,
+            step: 1,
+            format: "quoteLoanAmount",
+            minLabel: "< $100K",
+            maxLabel: "> $1.5MM"
+          },
+          {
+            field: "downPaymentPercent",
+            label: "Down Payment",
+            min: 0,
+            max: 20,
+            step: .5,
+            format: "percentOne",
+            minLabel: "0%",
+            maxLabel: "20%+"
+          }
+        ],
+        next: "financial-details"
+      },
+      {
+        id: "financial-details",
+        type: "sliders",
+        title: "Financial Details",
+        fields: [
+          {
+            field: "creditScore",
+            label: "Est. Credit Score",
+            min: 0,
+            max: 222,
+            step: 1,
+            format: "score",
+            minLabel: "< 580",
+            maxLabel: "800+"
+          },
+          {
+            field: "annualIncome",
+            label: "Annual Income",
+            min: 0,
+            max: 61,
+            step: 1,
+            format: "annualIncome",
+            minLabel: "$0",
+            maxLabel: "> $300K"
+          },
+          {
+            field: "availableCash",
+            label: "How much cash are you able to contribute?",
+            mobileLabel: "Available Cash Contribution",
+            tooltip: "Often called cash to close: the money you can bring to closing, including your down payment, closing costs, prepaid items, and any credits or deposits.",
+            min: 0,
+            dynamicMax: "bestLoanAmount",
+            step: 1,
+            format: "availableCash",
+            minLabel: "$0",
+            dynamicMaxLabel: "bestLoanAmount"
+          }
+        ],
+        next: "contact"
+      },
+      {
+        id: "contact",
+        type: "contact",
+        title: "Contact Details",
+        fields: [
+          { field: "fullName", label: "Full Name", inputType: "text", error: "Full Name is required." },
+          { field: "email", label: "Email", inputType: "email", error: "Enter a valid email address." },
+          { field: "phone", label: "Phone", inputType: "tel", error: "Phone is required." }
+        ],
+        next: "submit"
+      }
+    ];
+
+    const stepById = new Map(steps.map((step) => [step.id, step]));
+    const surveyCard = document.getElementById("surveyCard");
+    const successCard = document.getElementById("successCard");
+    const progressDock = document.getElementById("progressDock");
+    const progressFill = document.getElementById("progressFill");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function formatValue(value, format) {
+      const number = Number(value);
+      if (format === "currency") {
+        if (number >= 1000000) return `$${(number / 1000000).toFixed(number % 1000000 === 0 ? 0 : 2)}MM`;
+        if (number >= 1000) return `$${Math.round(number / 1000)}K`;
+        return `$${number.toLocaleString()}`;
+      }
+      if (format === "quoteLoanAmount") {
+        const amount = loanAmountFromSliderStep(number);
+        if (amount === "less") return "< $100K";
+        if (amount === "greater") return "> $1.5MM";
+        return formatValue(amount, "currency");
+      }
+      if (format === "quoteInterestRate") {
+        const rate = interestRateFromSliderStep(number);
+        if (rate === "less") return "< 4.5%";
+        if (rate === "greater") return "> 12.5%";
+        return `${rate.toFixed(rate % 1 === 0 ? 0 : 3).replace(/0+$/, "").replace(/\.$/, "")}%`;
+      }
+      if (format === "annualIncome") {
+        const income = annualIncomeFromSliderStep(number);
+        if (income === "greater") return "> $300K";
+        return formatValue(income, "currency");
+      }
+      if (format === "availableCash") {
+        return formatExactCurrency(availableCashFromSliderStep(number));
+      }
+      if (format === "percentOne") return `${number.toFixed(number % 1 === 0 ? 0 : 1)}%`;
+      if (format === "score") {
+        const score = creditScoreFromSliderStep(number);
+        if (score === "less") return "< 580";
+        if (score === "greater") return "800+";
+        return `${score}`;
+      }
+      return String(value);
+    }
+
+    function formatExactCurrency(value) {
+      const number = Number(value);
+      if (!Number.isFinite(number)) return "";
+      return `$${Math.round(number).toLocaleString()}`;
+    }
+
+    function loanAmountFromSliderStep(step) {
+      const index = Number(step);
+      if (index <= 0) return "less";
+      if (index >= 232) return "greater";
+      if (index <= 180) return 100000 + ((index - 1) * 5000);
+      return 1000000 + ((index - 181) * 10000);
+    }
+
+    function sliderStepFromLoanAmount(amount) {
+      const bounded = Math.max(100000, Math.min(1500000, Number(amount)));
+      if (bounded < 1000000) {
+        return 1 + Math.round((bounded - 100000) / 5000);
+      }
+      return 181 + Math.round((bounded - 1000000) / 10000);
+    }
+
+    function clampNumber(value, min, max) {
+      return Math.min(max, Math.max(min, value));
+    }
+
+    function roundToStep(value, step) {
+      return Math.round(value / step) * step;
+    }
+
+    function currentPurchasePriceAmount() {
+      const amount = loanAmountFromSliderStep(state.values.purchasePrice);
+      return typeof amount === "number" ? amount : null;
+    }
+
+    function currentQuoteLoanAmount() {
+      const amount = loanAmountFromSliderStep(state.values.quoteLoanAmount);
+      return typeof amount === "number" ? amount : null;
+    }
+
+    function currentRefiLoanAmount() {
+      const amount = loanAmountFromSliderStep(state.values.refiLoanAmount);
+      return typeof amount === "number" ? amount : null;
+    }
+
+    function availableCashMaxAmount() {
+      if (state.values.situation === "Purchase"
+        && typeof state.values.calculatedLoanAmount === "number"
+        && state.values.calculatedLoanAmount > 0) {
+        return state.values.calculatedLoanAmount;
+      }
+      if (state.values.situation === "Refinance") {
+        const refiLoanAmount = currentRefiLoanAmount();
+        if (refiLoanAmount) return refiLoanAmount;
+      }
+      if (state.values.quoteAlreadyReceived === "Yes") {
+        const quoteLoanAmount = currentQuoteLoanAmount();
+        if (quoteLoanAmount) return quoteLoanAmount;
+      }
+      return 0;
+    }
+
+    function resolveSliderMax(slider) {
+      if (slider.format === "availableCash") return 100;
+      if (slider.dynamicMax === "bestLoanAmount") return availableCashMaxAmount();
+      return slider.max;
+    }
+
+    function resolveSliderMaxLabel(slider) {
+      if (slider.dynamicMaxLabel === "bestLoanAmount") return formatExactCurrency(availableCashMaxAmount());
+      return slider.maxLabel;
+    }
+
+    function availableCashFromSliderStep(step) {
+      const index = clampNumber(Number(step), 0, 100);
+      const max = availableCashMaxAmount();
+      if (!max) return 0;
+      if (index <= 80) {
+        return Math.round(max * .2 * (index / 80));
+      }
+      return Math.round(max * (.2 + (.8 * ((index - 80) / 20))));
+    }
+
+    function interestRateFromSliderStep(step) {
+      const index = Number(step);
+      if (index <= 0) return "less";
+      if (index >= 66) return "greater";
+      return 4.5 + ((index - 1) * .125);
+    }
+
+    function creditScoreFromSliderStep(step) {
+      const index = Number(step);
+      if (index <= 0) return "less";
+      if (index >= 222) return "greater";
+      return 580 + (index - 1);
+    }
+
+    function annualIncomeFromSliderStep(step) {
+      const index = Number(step);
+      if (index >= 61) return "greater";
+      return index * 5000;
+    }
+
+    function getVisibleSteps() {
+      const visible = [];
+      let id = "quote-start";
+      const guard = new Set();
+      while (id && id !== "submit" && !guard.has(id)) {
+        guard.add(id);
+        const step = stepById.get(id);
+        if (!step) break;
+        visible.push(step);
+        id = getNextId(step);
+      }
+      return visible;
+    }
+
+    function getNextId(step) {
+      if (step.id === "situation" && state.values.situation === "Refinance") {
+        return state.values.quoteAlreadyReceived === "No" ? "refi-loan-amount" : "financial-details";
+      }
+      if (step.options) {
+        const selected = state.values[step.field];
+        const option = step.options.find((item) => {
+          const value = typeof item === "string" ? item : item.value;
+          return value === selected;
+        });
+        if (option && typeof option === "object" && option.next) return option.next;
+      }
+      return step.next;
+    }
+
+    function baseHeader() {
+      return `
+        <p class="survey-kicker">Real Estate Financing Questions?</p>
+        <h1 class="survey-title">Complete this 60 SECOND Survey</h1>
+        <p class="survey-offer">for a <strong>FREE</strong> CONSULTATION</p>
+      `;
+    }
+
+    function requiredMark(step) {
+      return "";
+    }
+
+    function renderOptions(step) {
+      return `
+        <div class="options">
+          ${step.options.map((option) => {
+            const label = typeof option === "string" ? option : option.label;
+            const value = typeof option === "string" ? option : option.value;
+            const checked = state.values[step.field] === value ? "checked" : "";
+            return `
+              <label class="choice">
+                <input type="radio" name="${step.field}" value="${value}" ${checked}>
+                <span>${label}</span>
+              </label>
+            `;
+          }).join("")}
+        </div>
+        <div class="error" id="stepError">Please choose an option.</div>
+      `;
+    }
+
+    function renderSlider(slider, options = {}) {
+      const showLabel = options.showLabel !== false;
+      const showValue = options.showValue !== false;
+      const max = resolveSliderMax(slider);
+      const value = Math.min(state.values[slider.field] ?? slider.min, max);
+      state.values[slider.field] = value;
+      const labelText = slider.mobileLabel
+        ? `<span class="desktop-label">${slider.label}</span><span class="mobile-label">${slider.mobileLabel}</span>`
+        : slider.label;
+      const tooltip = slider.tooltip
+        ? `<span class="tooltip-wrap"><button class="tooltip-trigger" type="button" aria-label="${slider.tooltip}">i</button><span class="tooltip-text" role="tooltip">${slider.tooltip}</span></span>`
+        : "";
+      return `
+        <div class="slider-block">
+          ${showLabel || showValue ? `
+            <div class="slider-head">
+              ${showLabel && slider.label ? `<label class="field-label" for="${slider.field}">${labelText}${tooltip}</label>` : ""}
+              ${showValue ? `
+                <output class="slider-value" for="${slider.field}" id="${slider.field}Output">
+                  ${formatValue(value, slider.format)}
+                </output>
+              ` : ""}
+            </div>
+          ` : ""}
+          <input class="range-input" id="${slider.field}" name="${slider.field}" type="range"
+            min="${slider.min}" max="${max}" step="${slider.step}" value="${value}"
+            data-format="${slider.format}">
+          <div class="range-scale">
+            <span>${slider.minLabel}</span>
+            <span>${resolveSliderMaxLabel(slider)}</span>
+          </div>
+          ${slider.hint ? `<p class="hint">${slider.hint}</p>` : ""}
+        </div>
+      `;
+    }
+
+    function renderInput(step) {
+      const value = state.values[step.field] || "";
+      return `
+        <div class="field">
+          <label for="${step.field}">${step.title}${requiredMark(step)}</label>
+          <input class="text-input" id="${step.field}" name="${step.field}" type="${step.inputType}"
+            value="${value}" placeholder="${step.placeholder || ""}" autocomplete="${autocompleteFor(step.field)}">
+          <div class="error" id="stepError">${step.error || "This field is required."}</div>
+        </div>
+      `;
+    }
+
+    function autocompleteFor(field) {
+      return {
+        fullName: "name",
+        email: "email",
+        phone: "tel"
+      }[field] || "on";
+    }
+
+    function renderStep() {
+      cleanupDetachedTooltips();
+      const step = stepById.get(state.currentId);
+      if (!step) return;
+      let body = "";
+
+      if (step.type === "intro-radio") {
+        body = `${step.showHeader ? baseHeader() : ""}<h2 class="question-title">${step.title}${requiredMark(step)}</h2>${renderOptions(step)}`;
+      } else if (step.type === "radio") {
+        body = `<h2 class="question-title">${step.title}${requiredMark(step)}</h2>${renderOptions(step)}`;
+      } else if (step.type === "slider") {
+        const value = state.values[step.field] ?? step.min;
+        body = `
+          <div class="question-title question-title-row ${step.mobileTitle ? "mobile-inline" : ""}">
+            <h2 style="margin:0;font:inherit">
+              <span class="desktop-title">${step.title}${requiredMark(step)}</span>
+              ${step.mobileTitle ? `<span class="mobile-title">${step.mobileTitle}${requiredMark(step)}</span>` : ""}
+            </h2>
+            <output class="slider-value" for="${step.field}" id="${step.field}Output">
+              ${formatValue(value, step.format)}
+            </output>
+          </div>
+          ${renderSlider(step, { showLabel: false, showValue: false })}
+        `;
+      } else if (step.type === "sliders") {
+        body = `
+          <h2 class="question-title">${step.title}${requiredMark(step)}</h2>
+          <div class="fields">${step.fields.map(renderSlider).join("")}</div>
+        `;
+      } else if (step.type === "input") {
+        body = renderInput(step);
+      } else if (step.type === "contact") {
+        body = `
+          <h2 class="question-title" style="text-align:center">${step.title}</h2>
+          <div class="fields">
+            ${step.fields.map((field) => `
+              <div class="field">
+                <label for="${field.field}">${field.label}</label>
+                <input class="text-input" id="${field.field}" name="${field.field}" type="${field.inputType}"
+                  value="${state.values[field.field] || ""}" autocomplete="${autocompleteFor(field.field)}">
+                <div class="error" id="${field.field}Error">${field.error}</div>
+              </div>
+            `).join("")}
+          </div>
+          <label class="consent-row">
+            <input id="smsConsent" name="smsConsent" type="checkbox" ${state.values.smsConsent ? "checked" : ""}>
+            <span>I agree to <a href="https://www.dreamhousevirginia.com/mobile-tos" target="_blank" rel="noopener">terms &amp; conditions</a> provided by the company. By providing my phone number, I agree to receive text messages from the business and am aware I can cancel the SMS service at any time by replying STOP to any message.</span>
+          </label>
+          <div class="error" id="smsConsentError">Agreement is required.</div>
+        `;
+      }
+
+      surveyCard.innerHTML = body;
+      bindStepInputs(step);
+      updateControls();
+    }
+
+    function bindStepInputs(step) {
+      surveyCard.querySelectorAll("input[type='radio']").forEach((input) => {
+        input.addEventListener("change", () => {
+          state.values[input.name] = input.value;
+          setTimeout(goNext, 180);
+        });
+      });
+
+      surveyCard.querySelectorAll("input[type='range']").forEach((input) => {
+        input.addEventListener("input", () => {
+          state.values[input.name] = Number(input.value);
+          if (state.currentId === "purchase-details" && ["purchasePrice", "downPaymentPercent"].includes(input.name)) {
+            handlePurchaseDetailsInput(input.name);
+          }
+          const output = document.getElementById(`${input.name}Output`);
+          if (output) output.textContent = formatValue(input.value, input.dataset.format);
+          updateObjectDebug();
+        });
+      });
+
+      surveyCard.querySelectorAll(".text-input").forEach((input) => {
+        input.addEventListener("input", () => {
+          state.values[input.name] = input.value;
+        });
+      });
+
+      const consent = document.getElementById("smsConsent");
+      if (consent) {
+        consent.addEventListener("change", () => {
+          state.values.smsConsent = consent.checked;
+        });
+      }
+
+      surveyCard.querySelectorAll(".tooltip-wrap").forEach((tooltipWrap) => {
+        const positionTooltip = () => positionTooltipWithinViewport(tooltipWrap);
+        const resetTooltip = () => resetTooltipPosition(tooltipWrap);
+        tooltipWrap.addEventListener("mouseenter", positionTooltip);
+        tooltipWrap.addEventListener("focusin", positionTooltip);
+        tooltipWrap.addEventListener("mouseleave", resetTooltip);
+        tooltipWrap.addEventListener("focusout", resetTooltip);
+      });
+
+    }
+
+    function positionTooltipWithinViewport(tooltipWrap) {
+      const text = tooltipWrap.querySelector(".tooltip-text");
+      const trigger = tooltipWrap.querySelector(".tooltip-trigger");
+      if (!text || !trigger) return;
+
+      text.classList.remove("is-positioned");
+      if (text.parentElement !== document.body) {
+        tooltipWrap.dataset.tooltipDetached = "true";
+        document.body.appendChild(text);
+      }
+      text.style.removeProperty("left");
+      text.style.removeProperty("top");
+      text.style.removeProperty("width");
+      text.style.removeProperty("transform");
+      text.style.removeProperty("--tooltip-arrow-left");
+
+      const margin = 16;
+      const triggerRect = trigger.getBoundingClientRect();
+      const width = Math.min(320, Math.max(160, window.innerWidth - (margin * 2)));
+      text.style.width = `${width}px`;
+      const height = text.offsetHeight || 120;
+      const preferredLeft = triggerRect.left + (triggerRect.width / 2) - (width / 2);
+      const viewportLeft = clampNumber(preferredLeft, margin, window.innerWidth - width - margin);
+      const preferredTop = triggerRect.bottom + 8;
+      const top = preferredTop + height > window.innerHeight - margin
+        ? clampNumber(triggerRect.top - height - 8, margin, window.innerHeight - height - margin)
+        : preferredTop;
+      const arrowLeft = clampNumber(triggerRect.left + (triggerRect.width / 2) - viewportLeft, 16, width - 16);
+
+      text.style.left = `${viewportLeft}px`;
+      text.style.top = `${top}px`;
+      text.style.transform = "none";
+      text.style.setProperty("--tooltip-arrow-left", `${arrowLeft}px`);
+      text.classList.add("is-positioned");
+    }
+
+    function resetTooltipPosition(tooltipWrap) {
+      const text = document.body.querySelector(".tooltip-text.is-positioned");
+      if (!text || tooltipWrap.dataset.tooltipDetached !== "true") return;
+
+      text.classList.remove("is-positioned");
+      text.style.removeProperty("left");
+      text.style.removeProperty("top");
+      text.style.removeProperty("width");
+      text.style.removeProperty("transform");
+      text.style.removeProperty("--tooltip-arrow-left");
+      tooltipWrap.appendChild(text);
+      delete tooltipWrap.dataset.tooltipDetached;
+    }
+
+    function cleanupDetachedTooltips() {
+      document.body.querySelectorAll(".tooltip-text.is-positioned").forEach((text) => {
+        text.remove();
+      });
+    }
+
+    function handlePurchaseDetailsInput() {
+      state.purchaseDetailsTouched = true;
+
+      if (shouldAutoCalculatePurchaseLoanAmount()) {
+        updateCalculatedLoanAmountFromPurchaseDetails();
+      }
+    }
+
+    function updateCalculatedLoanAmountFromPurchaseDetails() {
+      const purchasePrice = currentPurchasePriceAmount();
+      if (!purchasePrice) {
+        state.values.calculatedLoanAmount = null;
+        return;
+      }
+      const downPayment = clampNumber(Number(state.values.downPaymentPercent), 0, 20);
+      const calculatedLoanAmount = purchasePrice * (1 - (downPayment / 100));
+      state.values.calculatedLoanAmount = Math.round(calculatedLoanAmount);
+    }
+
+    function shouldAutoCalculatePurchaseLoanAmount() {
+      return state.values.quoteAlreadyReceived === "No" && state.values.situation === "Purchase";
+    }
+
+    function validateStep(step) {
+      let valid = true;
+      const showError = (id, shouldShow) => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle("show", shouldShow);
+      };
+
+      if (step.options && !state.values[step.field]) {
+        valid = false;
+        showError("stepError", true);
+      }
+
+      if (step.type === "input") {
+        const value = (state.values[step.field] || "").trim();
+        if (!value) valid = false;
+        if (value && step.inputType === "email") valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        if (value && step.pattern) valid = new RegExp(step.pattern).test(value);
+        showError("stepError", !valid);
+      }
+
+      if (step.type === "contact") {
+        const fullNameValid = Boolean((state.values.fullName || "").trim());
+        const emailValue = (state.values.email || "").trim();
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+        const phoneValid = (state.values.phone || "").replace(/\D/g, "").length >= 10;
+        const consentValid = Boolean(state.values.smsConsent);
+
+        showError("fullNameError", !fullNameValid);
+        showError("emailError", !emailValid);
+        showError("phoneError", !phoneValid);
+        showError("smsConsentError", !consentValid);
+        valid = fullNameValid && emailValid && phoneValid && consentValid;
+      }
+
+      return valid;
+    }
+
+    function goNext() {
+      const step = stepById.get(state.currentId);
+      if (!step || !validateStep(step)) return;
+      const next = getNextId(step);
+      if (next === "submit") {
+        submitSurvey();
+        return;
+      }
+      if (step.id === "purchase-details" && shouldAutoCalculatePurchaseLoanAmount()) {
+        updateCalculatedLoanAmountFromPurchaseDetails();
+      }
+      state.history.push(state.currentId);
+      if (next === "purchase-details") {
+        applyQuoteDefaultsToPurchaseDetails();
+      }
+      state.currentId = next;
+      renderStep();
+    }
+
+    function applyQuoteDefaultsToPurchaseDetails() {
+      if (state.purchaseDetailsTouched || state.values.quoteAlreadyReceived !== "Yes") return;
+      const quotedLoanAmount = loanAmountFromSliderStep(state.values.quoteLoanAmount);
+      if (typeof quotedLoanAmount !== "number") return;
+      const estimatedPurchasePrice = quotedLoanAmount / .97;
+      state.values.purchasePrice = sliderStepFromLoanAmount(estimatedPurchasePrice);
+      state.values.downPaymentPercent = 3;
+    }
+
+    function goPrev() {
+      const previous = state.history.pop();
+      if (!previous) return;
+      state.currentId = previous;
+      renderStep();
+    }
+
+    function updateControls() {
+      const index = PROGRESS_STEP_IDS.indexOf(state.currentId);
+      const progress = index < 0 ? 0 : ((index + 1) / PROGRESS_STEP_IDS.length) * 100;
+      const current = stepById.get(state.currentId);
+      prevBtn.disabled = state.history.length === 0;
+      nextBtn.textContent = current.next === "submit" ? "Submit" : "Next →";
+      nextBtn.dataset.submit = current.next === "submit" ? "true" : "false";
+      progressFill.style.width = `${progress}%`;
+      progressDock.style.setProperty("--mobile-progress", `${progress}%`);
+      surveyCard.style.setProperty("--mobile-progress", `${progress}%`);
+    }
+
+    function createGhlPayload() {
+      const visibleFields = new Set();
+      getVisibleSteps().forEach((step) => {
+        if (step.field) visibleFields.add(step.field);
+        if (step.fields) step.fields.forEach((field) => visibleFields.add(field.field));
+        if (step.id === "purchase-details" && shouldAutoCalculatePurchaseLoanAmount()) {
+          visibleFields.add("calculatedLoanAmount");
+        }
+        if (step.type === "contact") visibleFields.add("smsConsent");
+      });
+
+      return Object.entries(FIELD_MAP).reduce((payload, [localKey, ghlKey]) => {
+        payload[ghlKey] = visibleFields.has(localKey) ? payloadValueForField(localKey) : "";
+        return payload;
+      }, {
+        source: "Best Rate Shopper standalone mockup",
+        pageUrl: window.location.href
+      });
+    }
+
+    function payloadValueForField(localKey) {
+      if (localKey === "availableCash") return availableCashFromSliderStep(state.values.availableCash);
+      return state.values[localKey] ?? "";
+    }
+
+    function updateObjectDebug() {
+      window.bestRateShopperDraft = {
+        rawValues: { ...state.values },
+        ghlPayload: createGhlPayload()
+      };
+    }
+
+    async function submitSurvey() {
+      updateObjectDebug();
+      const payload = createGhlPayload();
+
+      if (typeof fbq === "function") {
+        fbq("track", "Lead", {
+          content_name: "Best Rate Shopper Survey",
+          value: state.values.purchasePrice || state.values.quoteLoanAmount || 0,
+          currency: "USD"
+        });
+      }
+
+      if (GHL_ENDPOINT) {
+        await fetch(GHL_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+      } else {
+        console.log("GHL payload mockup:", payload);
+      }
+
+      state.submitted = true;
+      surveyCard.style.display = "none";
+      progressDock.style.display = "none";
+      successCard.classList.add("show");
+      window.scrollTo({ top: document.getElementById("surveyShell").offsetTop, behavior: "smooth" });
+    }
+
+    document.getElementById("bestRateSurvey").addEventListener("submit", (event) => {
+      event.preventDefault();
+      goNext();
+    });
+
+    nextBtn.addEventListener("click", goNext);
+    prevBtn.addEventListener("click", goPrev);
+
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+    toggle.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("open");
+      toggle.classList.toggle("active", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+
+    renderStep();
+    updateObjectDebug();
+  </script>
 </body>
+
 </html>
